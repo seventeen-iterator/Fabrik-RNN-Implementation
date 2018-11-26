@@ -9,7 +9,7 @@ Better to evaluate it inside virtual environment.
 ## Problem
 As for now, Fabrik cannot export models for Tensorflow containing any recurrence. And it's pretty hard to implement, because there's no operations "SimpleRNN" or "LSTM", so we have to find another way to do it.
 ## Observations
-If we look at several `.pbtxt`, we may notice some facts:
+If we look at several `.pbtxt` files, we may notice some facts:
 - The nodes which belong to specific layer have prefix, which has the following pattern: `<type_of_layer>_<number>`. We can indicate type of layer by trying to fetch this pattern. Also different layers have different numbers.
 - Some nodes have an initialized values, unlike Keras models. It's painful when it's orthogonal and we have to determine it.
 - If we try to search dropout rates, we'll end up with nothing. But we'll find `1 - dropout` values. Nodes containing them named `keep_prob`.
